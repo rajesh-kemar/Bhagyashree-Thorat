@@ -1,0 +1,52 @@
+<div class="dashboard">
+
+  <div class="top-layout">
+
+    <!-- LEFT SIDE -->
+    <div class="left-section">
+      <h2 class="title">Dispatcher Dashboard</h2>
+      <img src="assets/logo01.png" alt="Kemar Logistics" class="dashboard-logo">
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right-section">
+      <div class="cards">
+        <div class="card" routerLink="/trips" [queryParams]="{ filter: 'all' }">
+          <div class="card-title">Total Trips</div>
+          <div class="card-value">{{ totalTrips }}</div>
+        </div>
+
+        <div class="card" routerLink="/trips" [queryParams]="{ filter: 'active' }">
+          <div class="card-title">Active Trips</div>
+          <div class="card-value active">{{ activeTrips }}</div>
+        </div>
+
+        <div class="card" routerLink="/trips" [queryParams]="{ filter: 'completed' }">
+          <div class="card-title">Completed Trips</div>
+          <div class="card-value completed">{{ completedTrips }}</div>
+        </div>
+
+        <div class="card" routerLink="/vehicles" [queryParams]="{ filter: 'available' }">
+          <div class="card-title">Available Vehicles</div>
+          <div class="card-value">{{ vehiclesAvailable }}</div>
+        </div>
+      </div>
+
+
+   <!-- Invite Code Section -->
+  <div class="invite-box">
+    <button (click)="generateInvite()" class="btn-generate">Generate Invite</button>
+
+    <div *ngIf="inviteCode" class="invite-result">
+      <p class="label">Invite Code:</p>
+      <p class="code">{{ inviteCode }}</p>
+      <button (click)="copyInvite()" class="btn-copy">Copy</button>
+    </div>
+  </div>
+
+
+    </div>
+
+  
+
+  </div>

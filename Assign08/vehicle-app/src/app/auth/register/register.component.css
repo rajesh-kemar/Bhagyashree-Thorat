@@ -1,0 +1,16 @@
+.register-container {
+  width: 350px;
+  margin: auto;
+  margin-top: 40px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.register-container input,
+.register-container select,
+.register-container button {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+}

@@ -1,0 +1,78 @@
+<h2>Vehicles</h2>
+
+<div class="filter-buttons">
+  <button [class.active]="currentFilter === 'all'" (click)="filterVehicles('all')">All Vehicles</button>
+  <button [class.active]="currentFilter === 'available'" (click)="filterVehicles('available')">Available</button>
+  <button [class.active]="currentFilter === 'busy'" (click)="filterVehicles('busy')">Busy</button>
+  <button [class.active]="currentFilter === 'inactive'" (click)="filterVehicles('inactive')">Inactive</button>
+
+  <!-- ✅ New Toggle Button -->
+  <button class="create-btn" (click)="toggleAddForm()">
+    {{ showAddForm ? 'Cancel' : 'Add Vehicle' }}
+  </button>
+</div>
+
+<!-- ✅ Form now appears only if showAddForm is true -->
+<div *ngIf="showAddForm" class="add-form">
+  <h3>Add Vehicle</h3>
+
+  <input type="text" placeholder="Number Plate" [(ngModel)]="newVehicle.numberPlate" name="numberPlate" required>
+  <input type="text" placeholder="Type" [(ngModel)]="newVehicle.type" name="type" required>
+  <input type="number" placeholder="Capacity" [(ngModel)]="newVehicle.capacity" name="capacity" required>
+
+  <button class="create-btn" (click)="addVehicle()">Save Vehicle</button>
+
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Number Plate</th>
+      <th>Type</th>
+      <th>Capacity</th>
+      <th>Status</th>
+      <th>Action</th> 
+  </thead>
+  <tbody>
+    <tr *ngFor="let v of filteredVehicles">
+      <td>{{ v.vehicleId }}</td>
+      <td>{{ v.numberPlate }}</td>
+      <td>{{ v.type }}</td>
+      <td>{{ v.capacity }}</td>
+
+      <td [ngClass]="{
+          'busy': v.status === 'Busy',
+          'available': v.status === 'Available',
+          'inactive': v.status === 'Inactive'
+        }">
+        {{ v.status }}
+      </td>
+
+      <td>
+  <!-- Available -> Mark Inactive -->
+  <button class="inactive-btn"
+          *ngIf="v.status === 'Available'"
+          (click)="markInactive(v.vehicleId)">
+    Mark Inactive
+  </button>
+
+  <!-- Inactive -> Mark Active -->
+  <button class="active-btn"
+          *ngIf="v.status === 'Inactive'"
+          (click)="markActive(v.vehicleId)">
+    Mark Active
+  </button>
+
+  <!-- Busy -> No Actions -->
+  <span *ngIf="v.status === 'Busy'" class="locked-label">
+    In Use
+  </span>
+</td>
+
+
+    </tr>
+  </tbody>
+</table>
+
+

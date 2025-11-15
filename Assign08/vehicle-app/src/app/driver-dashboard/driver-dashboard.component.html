@@ -1,0 +1,75 @@
+<div class="driver-dashboard">
+
+  <h2 class="page-title">Driver Dashboard</h2>
+
+  <!-- ✅ Driver Profile Card -->
+  <div class="profile-card" *ngIf="driverInfo">
+  <div class="avatar">{{ driverInfo.name[0] }}</div>
+
+  <div class="profile-details">
+    <h3>{{ driverInfo.name }}</h3>
+    <p>Email: <strong>{{ driverInfo.email }}</strong></p>
+    <p>License: <strong>{{ driverInfo.licenseNumber }}</strong></p>
+    <p>Phone: <strong>{{ driverInfo.phone }}</strong></p>
+    <p>Experience: <strong>{{ driverInfo.experienceYears }} years</strong></p>
+    <p>Status: <strong>{{ driverInfo.status }}</strong></p>
+  </div>
+</div>
+
+
+  <!-- ✅ Summary Stats -->
+  <div class="stats-container" *ngIf="summary">
+    <div class="stat-card">
+      <div class="label">Total Trips</div>
+      <div class="value">{{ summary.totalTrips }}</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="label">Total Hours Driven</div>
+      <div class="value">{{ summary.totalHoursDriven }} hrs</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <h3>My Trips</h3>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Vehicle</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let trip of trips; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ trip.vehicle?.numberPlate }} ({{ trip.vehicle?.type }})</td>
+        <td>{{ trip.source }}</td>
+        <td>{{ trip.destination }}</td>
+        <td>{{ trip.startTime | date:'short' }}</td>
+        <td>{{ trip.endTime ? (trip.endTime | date:'short') : '—' }}</td>
+        <td>
+  <!-- If trip is completed, show purple text -->
+  <span *ngIf="trip.status === 'Completed'" class="completed-status">
+    Completed
+  </span>
+
+  <!-- If trip is still running → show Mark Complete button -->
+  <button *ngIf="trip.status === 'InProgress'" 
+          class="complete-btn"
+          (click)="completeTrip(trip.tripId)">
+    Mark Complete
+  </button>
+</td>
+
+      </tr>
+    </tbody>
+  </table>
+
+</div>

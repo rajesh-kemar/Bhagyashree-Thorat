@@ -1,0 +1,124 @@
+/* Match table border style with Drivers page */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+
+/* Compact form similar to Add Vehicle form */
+.add-form {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.add-form h3 {
+  margin-bottom: 10px;
+}
+
+.add-form input,
+.add-form select {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.add-form button {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.add-form button:hover {
+  background: #357ec7;
+}
+
+/* Restore Create Trip Button Styling */
+.create-trip-btn {
+  background: #4a90e2 !important;
+  color: white !important;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.create-trip-btn:hover {
+  background: #357ec7 !important;
+}
+
+/* Default state: very light blue for Trips filter buttons */
+.filters button {
+  background: #eaf3ff;         /* very light blue */
+  border: 1px solid #c5d9ff;   /* soft border */
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #3b4b6d;              /* calm text color */
+  transition: 0.25s;
+}
+
+/* Hover effect */
+.filters button:hover {
+  background: #d9e9ff;
+  border-color: #8fb4ff;
+}
+
+/* ✅ Active Highlight */
+.filters button.active {
+  background: #dcd4ff;         /* deeper shade */
+  border-color: #7c6fd8;
+  color: #4a3f7c;
+  font-weight: 600;
+}
+
+
+
+th {
+  background-color: #ffe6ec;
+  color: #c45186;
+  font-weight: 600;
+}
+
+/* Soft status colors */
+td.Completed {
+  /*background-color: #e8f8e8; *//* faint green */
+  color: #4d4183;
+  /*font-weight: 600;*/
+}
+
+td.InProgress {
+  /*background-color: #f2e8f8; *//* faint lavender */
+  color: #3b94fa;
+  /*font-weight: 600;*/
+}
+
+/* Mark Complete button styled like inactive-btn */
+.complete-btn {
+  background: #ded7fc;
+  color: #50467e;
+  border: 1px solid #9086da;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.complete-btn:hover {
+  background: #bfb1fa;
+}

@@ -1,0 +1,49 @@
+<div class="main-layout">
+  <header class="navbar" *ngIf="authService.isLoggedIn()">
+    
+     <!--  <div class="brand">
+  <img src="assets/logo03.png" alt="Kemar Logistics Logo" class="logo-img"> 
+  <span>Kemar Logistics</span>
+</div>  -->
+
+
+<div class="brand">
+  <img src="assets/logo05.png" class="logo-img" alt="Logo">
+</div>
+
+
+    <nav>
+      <a routerLink="/dispatcher-dashboard" 
+         *ngIf="authService.getRole() === 'Dispatcher'">
+         Dashboard
+      </a>
+
+      <a routerLink="/driver-dashboard" 
+         *ngIf="authService.getRole() === 'Driver'">
+         My Dashboard
+      </a>
+
+      <a routerLink="/trips" 
+         *ngIf="authService.getRole() === 'Dispatcher'">
+         Trips
+      </a>
+
+      <a routerLink="/drivers" 
+         *ngIf="authService.getRole() === 'Dispatcher'">
+         Drivers
+      </a>
+
+      <a routerLink="/vehicles" 
+         *ngIf="authService.getRole() === 'Dispatcher'">
+         Vehicles
+      </a>
+
+      <!-- ✅ Call local logout() instead of service directly -->
+      <a (click)="logout()">Logout</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

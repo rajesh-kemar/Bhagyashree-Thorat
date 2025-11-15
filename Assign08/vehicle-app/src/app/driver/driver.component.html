@@ -1,0 +1,47 @@
+<h2>Drivers</h2>
+
+<div class="filter-buttons">
+  <button [class.active]="currentFilter === 'all'" (click)="filterDrivers('all')">All</button>
+  <button [class.active]="currentFilter === 'available'" (click)="filterDrivers('available')">Available</button>
+  <button [class.active]="currentFilter === 'busy'" (click)="filterDrivers('busy')">Busy</button>
+  <button [class.active]="currentFilter === 'inactive'" (click)="filterDrivers('inactive')">Inactive</button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>License</th>
+      <th>Phone</th>
+      <th>Experience</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let d of filteredDrivers">
+
+      <td>{{ d.driverId }}</td>
+      <td>{{ d.name }}</td>
+      <td>{{ d.licenseNumber }}</td>
+      <td>{{ d.phone }}</td>
+      <td>{{ d.experienceYears }}</td>
+
+      <td [ngClass]="d.status.toLowerCase()">{{ d.status }}</td>
+
+      <td>
+        <!-- Available -> Inactive -->
+        <button *ngIf="d.status === 'Available'" class="inactive-btn" (click)="markInactive(d.driverId)">Mark Inactive</button>
+
+        <!-- Inactive -> Active -->
+        <button *ngIf="d.status === 'Inactive'" class="active-btn" (click)="markActive(d.driverId)">Mark Active</button>
+
+        <!-- Busy -> Locked -->
+        <span *ngIf="d.status === 'Busy'" class="locked-label">On Trip</span>
+      </td>
+
+    </tr>
+  </tbody>
+</table>

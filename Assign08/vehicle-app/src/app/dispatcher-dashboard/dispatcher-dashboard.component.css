@@ -1,0 +1,129 @@
+/* Layout for top section */
+.top-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  margin-top: px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+/* Left Title + Logo Area */
+.left-section {
+  display: flex;
+  width: 500px;
+  height: 500px;
+  /* background-color: red; */
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Heading style refinement */
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-left: 80px;
+  color: #3b3663;
+  margin-bottom: 16px;
+  letter-spacing: 0.6px;
+}
+
+/* Logo adjusted for nice scaling */
+.dashboard-logo {
+  height: 450px;
+  width: 450px;
+  margin-left: 50px;
+  margin-top: -45px;
+  padding: 0px 20px;  
+  align-items: center;
+  object-fit: contain;
+  display: block;
+  /* margin-top: 4px; */
+  opacity: 0.95;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Subtle hover polish
+.dashboard-logo:hover {
+  transform: scale(1.05);
+  opacity: 1;
+} */
+
+/* Card layout refined for right side */
+.right-section .cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 22px;
+}
+
+/* Modern Soft Themed Cards */
+.card {
+  background: #f4efff;            /* soft lavender base */
+  border: 1px solid #c9bdf9;      /* gentle pastel purple border */
+  padding: 20px;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(87, 71, 162, 0.10);  /* slight purple glow shadow */
+  transition: transform .25s ease, box-shadow .25s ease, background .25s;
+}
+
+/* Hover feels soft, not too flashy */
+.card:hover {
+  background: #e3d9ff;            /* a bit richer purple tint */
+  box-shadow: 0 6px 14px rgba(87, 71, 162, 0.20);
+  transform: translateY(-4px);
+}
+
+/* Title text tone */
+.card-title {
+  color: #6a5fa0;                 /* soft purple-gray */
+  font-weight: 500;
+}
+
+/* Value text tone */
+.card-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: #4e3f81;                 /* deep elegant purple */
+}
+
+/* Special Highlight Colors */
+.card-value.active {
+  color: #8452c7;                 /* lavender violet */
+}
+
+.card-value.completed {
+  color: #3d9b55;                 /* fresh green */
+}
+
+.card-value.busy {
+  color: #d63e7c;                 /* berry pink */
+}
+
+
+/* Invite Box */
+.invite-box {
+  background: white;
+  padding: 18px;
+  border-radius: 10px;
+  width: fit-content;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.btn-generate, .btn-copy {
+  background: #50467e;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-generate:hover, .btn-copy:hover {
+  background: #50467e;
+}
+
+.invite-result {
+  margin-top: 12px;
+}

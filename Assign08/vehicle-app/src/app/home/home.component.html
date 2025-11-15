@@ -1,0 +1,25 @@
+<div class="login-container">
+  <h1>Homepage</h1>
+
+  <h2>Welcome to Logistics System</h2>
+
+  <div class="login-box">
+    <h3>Login</h3>
+    <label>Username:</label>
+    <input [(ngModel)]="username" type="text" placeholder="Enter username" />
+
+    <label>Password:</label>
+    <input [(ngModel)]="password" type="password" placeholder="Enter password" />
+
+    <button (click)="login()">Login</button>
+
+    <p style="margin-top: 10px;">
+      Don't have an account?
+      <button type="button" routerLink="/register" class="btn btn-link">Register</button>
+    </p>
+
+
+
+    <p class="msg">{{ message }}</p>
+  </div>
+</div>

@@ -1,0 +1,146 @@
+.driver-dashboard {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #3b3663;
+  margin-bottom: 4px;
+}
+
+.stats-container {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 10px;
+  min-width: 180px;
+  box-shadow: 0px 1px 6px rgba(0,0,0,0.08);
+  text-align: center;
+  flex: 1;
+}
+
+.stat-card .label {
+  font-size: 14px;
+  color: #6d6a7c;
+}
+
+.stat-card .value {
+  margin-top: 6px;
+  font-size: 26px;
+  font-weight: 600;
+  color: #4a3f7c;
+}
+
+.section-header h3 {
+  font-size: 20px;
+  color: #4a3f7c;
+  margin: 0;
+}
+
+/* ------------------- Table ------------------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+th, td {
+  border: 1px solid #e2d9ef;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+th {
+  background: #f6edff;
+  color: #5b3e7e;
+  font-weight: 600;
+}
+
+/* Trip Status Colors */
+td.Completed {
+  color: #2b7a3b;
+  font-weight: 600;
+}
+
+td.InProgress {
+  color: #8c5da6;
+  font-weight: 600;
+}
+/* ------------ Driver Profile Card ------------ */
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 6px rgba(0,0,0,0.08);
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  background: #7e57c2;
+  color: white;
+  font-size: 30px;
+  font-weight: 600;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-details h3 {
+  margin: 0;
+  font-size: 22px;
+  color: #4a3f7c;
+}
+
+.profile-details p {
+  margin: 3px 0;
+  color: #6d6a7c;
+  font-size: 14px;
+}
+
+.status-available {
+  color: #2b7a3b;
+  font-weight: 600;
+}
+
+.status-busy {
+  color: #a84b9a;
+  font-weight: 600;
+}
+
+
+/* Mark Complete Button Style */
+.complete-btn {
+  background: #d9e9ff;
+  color: #548cfc;
+  border: 1px solid #89affa;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.complete-btn:hover {
+  background: #aacaf7;
+}
+
+/* Completed text styling */
+.completed-status {
+  color: #4d4183;
+  font-weight: 600;
+}
