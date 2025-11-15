@@ -1,0 +1,27 @@
+<div class="filter-buttons">
+  <button (click)="filterDrivers('all')">All Drivers</button>
+  <button (click)="filterDrivers('available')">Available Drivers</button>
+</div>
+
+<table border="1" width="100%">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>License</th>
+      <th>Phone</th>
+      <th>Experience (yrs)</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let d of filteredDrivers">
+      <td>{{ d.driverId }}</td>
+      <td>{{ d.name }}</td>
+      <td>{{ d.licenseNumber }}</td>
+      <td>{{ d.phone }}</td>
+      <td>{{ d.experienceYears }}</td>
+      <td>{{ d.status }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,11 @@
+<div *ngIf="vehicle">
+  <h3> Vehicle Details</h3>
+  <p><strong>Number Plate:</strong> {{ vehicle.numberPlate }}</p>
+  <p><strong>Type:</strong> {{ vehicle.type }}</p>
+  <p><strong>Capacity:</strong> {{ vehicle.capacity }} kg</p>
+  <p><strong>Status:</strong> {{ vehicle.status }}</p>
+</div>
+
+<div *ngIf="!vehicle">
+  <p>Click on a vehicle to view details.</p>
+</div>

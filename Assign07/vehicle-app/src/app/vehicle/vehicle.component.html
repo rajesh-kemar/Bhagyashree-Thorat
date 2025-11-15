@@ -1,0 +1,25 @@
+<div class="filter-buttons">
+  <button (click)="filterVehicles('all')">All Vehicles</button>
+  <button (click)="filterVehicles('available')">Available Vehicles</button>
+</div>
+
+<table border="1" width="100%">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Number Plate</th>
+      <th>Type</th>
+      <th>Capacity</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let v of filteredVehicles">
+      <td>{{ v.vehicleId }}</td>
+      <td>{{ v.numberPlate }}</td>
+      <td>{{ v.type }}</td>
+      <td>{{ v.capacity }}</td>
+      <td>{{ v.status }}</td>
+    </tr>
+  </tbody>
+</table>

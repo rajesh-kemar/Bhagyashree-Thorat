@@ -1,0 +1,80 @@
+<h2>Create New Trip</h2>
+
+<form [formGroup]="tripForm" (ngSubmit)="addTrip()" class="trip-form">
+  <label>Driver:</label>
+  <select formControlName="driverId" required>
+    <option value="">-- Select Driver --</option>
+    <option *ngFor="let d of drivers" [value]="d.driverId">
+      {{ d.name }}
+    </option>
+  </select>
+
+  <label>Vehicle:</label>
+  <select formControlName="vehicleId" required>
+    <option value="">-- Select Vehicle --</option>
+    <option *ngFor="let v of vehicles" [value]="v.vehicleId">
+      {{ v.numberPlate }} ({{ v.type }})
+    </option>
+  </select>
+
+  <label>Source:</label>
+  <input formControlName="source" type="text" required />
+
+  <label>Destination:</label>
+  <input formControlName="destination" type="text" required />
+
+  <label>Start Time:</label>
+  <input formControlName="startTime" type="datetime-local" required />
+
+  <button type="submit" [disabled]="tripForm.invalid">Create Trip</button>
+</form>
+
+<p *ngIf="message" class="message">{{ message }}</p>
+
+<hr />
+
+<h2>Trips List</h2>
+
+<div class="filters">
+  <button (click)="filterTrips('all')">All Trips</button>
+  <button (click)="filterTrips('active')">Active Trips</button>
+  <button (click)="filterTrips('completed')">Completed Trips</button>
+  <button (click)="filterTrips('long')">Trips > 8 hours</button>
+</div>
+
+<table border="1" width="100%">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Trip ID</th>
+      <th>Driver Name</th>
+      <th>Vehicle Number</th>
+      <th>Vehicle Type</th>
+      <th>Source</th>
+      <th>Destination</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let trip of filteredTrips; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ trip.tripId }}</td>
+      <td>{{ trip.driver?.name || 'N/A' }}</td>
+      <td>{{ trip.vehicle?.numberPlate || 'N/A' }}</td>
+      <td>{{ trip.vehicle?.type || 'N/A' }}</td>
+      <td>{{ trip.source }}</td>
+      <td>{{ trip.destination }}</td>
+      <td>{{ trip.startTime | date: 'short' }}</td>
+      <td>{{ trip.endTime ? (trip.endTime | date: 'short') : '—' }}</td>
+      <td>{{ trip.status }}</td>
+      <td>
+        <button *ngIf="trip.status !== 'Completed'" (click)="completeTrip(trip.tripId)">
+          Mark Complete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

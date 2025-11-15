@@ -1,0 +1,54 @@
+
+
+<div class="trip-form-container">
+  <h2>Create New Trip</h2>
+
+  <form [formGroup]="tripForm" (ngSubmit)="onSubmit()">
+    <div class="form-field">
+      <label>Vehicle:</label>
+      <select formControlName="vehicleId">
+        <option value="">--Select Vehicle--</option>
+        <option *ngFor="let v of vehicles" [value]="v.vehicleId">
+          {{ v.numberPlate }} ({{ v.type }})
+        </option>
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label>Driver:</label>
+      <select formControlName="driverId">
+        <option value="">--Select Driver--</option>
+        <option *ngFor="let d of drivers" [value]="d.driverId">
+          {{ d.name }} ({{ d.experienceYears }} yrs)
+        </option>
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label>Source:</label>
+      <input type="text" formControlName="source" placeholder="Enter source">
+    </div>
+
+    <div class="form-field">
+      <label>Destination:</label>
+      <input type="text" formControlName="destination" placeholder="Enter destination">
+    </div>
+
+    <div class="form-field">
+      <label>Start Time:</label>
+      <input type="datetime-local" formControlName="startTime">
+    </div>
+
+    <div class="form-field">
+      <label>End Time:</label>
+      <input type="datetime-local" formControlName="endTime">
+    </div>
+
+    <button type="submit" [disabled]="tripForm.invalid">Create Trip</button>
+  </form>
+
+  <p class="message">{{ message }}</p>
+</div>
+
+
+
